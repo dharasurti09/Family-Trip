@@ -6,15 +6,12 @@
   <title>Family Trip</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
   <style>
-    /* Set background image for body */
     body {
-      background-image: url('images/waterfall-background.jpg'); /* Add the correct path to your waterfall image */
+      background-image: url('images/waterfall-background.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
-
-    /* Hover effect styles */
     .hover-details {
       display: none;
     }
@@ -30,125 +27,88 @@
       <p class="text-lg">Dates: May 18, 2025 - May 24, 2025</p>
     </section>
 
-    <!-- Attractions Section -->
-    <section class="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
-      <!-- Niagara Falls, New York -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+    <!-- Itinerary by Day -->
+    <section class="bg-white p-6 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-bold text-center mb-4">Daily Itinerary</h2>
+      <div class="grid gap-4 text-gray-800">
+        <div><strong>Day 1 (May 18):</strong> Arrive at Niagara Falls, New York – Check-in, explore nearby sights.</div>
+        <div><strong>Day 2 (May 19):</strong> Visit Maid of the Mist & Observation Tower.</div>
+        <div><strong>Day 3 (May 20):</strong> Morning in NY, afternoon travel to Niagara Falls, Canada – Journey Behind the Falls.</div>
+        <div><strong>Day 4 (May 21):</strong> Explore Skylon Tower and enjoy falls-side dining.</div>
+        <div><strong>Day 5 (May 22):</strong> Morning in Canada, afternoon travel to Toronto – CN Tower at night.</div>
+        <div><strong>Day 6 (May 23):</strong> Visit Royal Ontario Museum and explore downtown.</div>
+        <div><strong>Day 7 (May 24):</strong> Shopping or sightseeing, prepare for departure.</div>
+      </div>
+    </section>
+
+    <!-- Destination Sections -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-800">
+      <!-- Niagara Falls, NY -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
         <img src="images/niagara-ny.jpg" class="w-full h-40 object-cover" alt="Niagara NY">
         <div class="p-4">
           <h2 class="text-2xl font-bold mb-2">Niagara Falls, New York</h2>
+          <p><strong>Planned Days:</strong> Day 1 to Day 3 (morning)</p>
           <p><strong>Hotel:</strong> Hotel NY Falls Inn</p>
           <p><strong>Hotel Info:</strong> Located near the falls, includes breakfast, family-friendly.</p>
-          <p><strong>Attractions:</strong></p>
-          <ul class="list-disc list-inside text-sm space-y-2">
-            <li class="group relative">
-              <span><strong>Maid of the Mist</strong></span>
-              <div class="absolute left-0 mt-1 w-full bg-blue-50 text-gray-800 text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                Boat ride to the base of the falls.<br>
-                <strong>Price:</strong> $25
-              </div>
-            </li>
-            <li class="group relative">
-              <span><strong>Observation Tower</strong></span>
-              <div class="absolute left-0 mt-1 w-full bg-blue-50 text-gray-800 text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                Panoramic views of the falls.<br>
-                <strong>Price:</strong> $10
-              </div>
-            </li>
-          </ul>
-          <p class="mt-2"><strong>Estimated Cost:</strong> $500</p>
+          <div class="hover-details mt-2">
+            <p><strong>Attractions:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>Maid of the Mist - $25 - Iconic boat ride to the base of the falls</li>
+              <li>Observation Tower - $5 - Panoramic views of the falls</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- Niagara Falls, Canada -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
         <img src="images/niagara-canada.jpg" class="w-full h-40 object-cover" alt="Niagara Canada">
         <div class="p-4">
           <h2 class="text-2xl font-bold mb-2">Niagara Falls, Canada</h2>
-          <p><strong>Hotel:</strong> Fallsview Hotel</p>
-          <p><strong>Hotel Info:</strong> Rooms with a view of the falls, spa and dining included.</p>
-          <p><strong>Attractions:</strong></p>
-          <ul class="list-disc list-inside text-sm space-y-2">
-            <li class="group relative">
-              <span><strong>Journey Behind the Falls</strong></span>
-              <div class="absolute left-0 mt-1 w-full bg-blue-50 text-gray-800 text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                Walk through tunnels behind the falls.<br>
-                <strong>Price:</strong> $22
-              </div>
-            </li>
-            <li class="group relative">
-              <span><strong>Skylon Tower</strong></span>
-              <div class="absolute left-0 mt-1 w-full bg-blue-50 text-gray-800 text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                Observation deck and revolving restaurant.<br>
-                <strong>Price:</strong> $15
-              </div>
-            </li>
-          </ul>
-          <p class="mt-2"><strong>Estimated Cost:</strong> $600</p>
+          <p><strong>Planned Days:</strong> Day 3 (afternoon) to Day 5 (afternoon)</p>
+          <p><strong>Hotel:</strong> Canadian Falls View Hotel</p>
+          <p><strong>Hotel Info:</strong> Offers rooms with views of the falls, on-site dining, pool.</p>
+          <div class="hover-details mt-2">
+            <p><strong>Attractions:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>Journey Behind the Falls - $30 - View falls from tunnels below</li>
+              <li>Skylon Tower - $20 - Dining and observation deck with skyline views</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- Toronto -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
         <img src="images/toronto.jpg" class="w-full h-40 object-cover" alt="Toronto">
         <div class="p-4">
           <h2 class="text-2xl font-bold mb-2">Toronto</h2>
-          <p><strong>Hotel:</strong> Toronto City Hotel</p>
-          <p><strong>Hotel Info:</strong> Centrally located, includes access to gym and pool.</p>
-          <p><strong>Attractions:</strong></p>
-          <ul class="list-disc list-inside text-sm space-y-2">
-            <li class="group relative">
-              <span><strong>CN Tower</strong></span>
-              <div class="absolute left-0 mt-1 w-full bg-blue-50 text-gray-800 text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                Iconic landmark with skywalk experience.<br>
-                <strong>Price:</strong> $35
-              </div>
-            </li>
-            <li class="group relative">
-              <span><strong>Royal Ontario Museum</strong></span>
-              <div class="absolute left-0 mt-1 w-full bg-blue-50 text-gray-800 text-sm rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                Natural history and world cultures museum.<br>
-                <strong>Price:</strong> $20
-              </div>
-            </li>
-          </ul>
-          <p class="mt-2"><strong>Estimated Cost:</strong> $700</p>
+          <p><strong>Planned Days:</strong> Day 5 (afternoon) to Day 7</p>
+          <p><strong>Hotel:</strong> Toronto Central Hotel</p>
+          <p><strong>Hotel Info:</strong> Centrally located, includes breakfast and access to public transport.</p>
+          <div class="hover-details mt-2">
+            <p><strong>Attractions:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>CN Tower - $35 - Iconic tower with glass floor and 360 restaurant</li>
+              <li>Royal Ontario Museum - $25 - History and science exhibits</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Tickets Section -->
-    <section class="mt-10 bg-white p-6 rounded-xl shadow-lg">
+    <!-- Ticket Section -->
+    <section class="bg-white p-6 rounded-xl shadow-lg text-gray-800">
       <h2 class="text-3xl font-bold text-center mb-4">Tickets to Buy</h2>
-      
-      <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Niagara Falls NY Ticket -->
-        <div class="bg-blue-50 rounded-xl p-4 shadow">
-          <h3 class="text-2xl font-semibold mb-2">Niagara Falls, New York</h3>
-          <p><strong>Ticket Type:</strong> General Admission</p>
-          <p><strong>Price:</strong> $25</p>
-          <p class="text-sm text-gray-600 mb-4">Ticket includes access to Maid of the Mist and Observation Tower.</p>
-          <a href="#" class="block text-center text-white bg-blue-600 py-2 rounded hover:bg-blue-700">Buy Tickets</a>
-        </div>
-
-        <!-- Niagara Falls Canada Ticket -->
-        <div class="bg-blue-50 rounded-xl p-4 shadow">
-          <h3 class="text-2xl font-semibold mb-2">Niagara Falls, Canada</h3>
-          <p><strong>Ticket Type:</strong> Journey Behind the Falls</p>
-          <p><strong>Price:</strong> $22</p>
-          <p class="text-sm text-gray-600 mb-4">Includes access to Skylon Tower and Journey Behind the Falls.</p>
-          <a href="#" class="block text-center text-white bg-blue-600 py-2 rounded hover:bg-blue-700">Buy Tickets</a>
-        </div>
-
-        <!-- Toronto Ticket -->
-        <div class="bg-blue-50 rounded-xl p-4 shadow">
-          <h3 class="text-2xl font-semibold mb-2">Toronto</h3>
-          <p><strong>Ticket Type:</strong> CN Tower SkyWalk</p>
-          <p><strong>Price:</strong> $35</p>
-          <p class="text-sm text-gray-600 mb-4">Ticket includes access to the CN Tower observation deck and SkyWalk experience.</p>
-          <a href="#" class="block text-center text-white bg-blue-600 py-2 rounded hover:bg-blue-700">Buy Tickets</a>
-        </div>
-      </div>
+      <ul class="list-disc list-inside">
+        <li>Maid of the Mist – $25 per adult</li>
+        <li>Observation Tower – $5</li>
+        <li>Journey Behind the Falls – $30</li>
+        <li>Skylon Tower – $20</li>
+        <li>CN Tower – $35</li>
+        <li>Royal Ontario Museum – $25</li>
+      </ul>
     </section>
 
   </div>
