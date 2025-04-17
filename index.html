@@ -2,33 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Family Trip</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family Trip to Canada</title>
+  <script>
+    function toggleAttractions(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle("hidden");
+    }
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <style>
-    /* Set background image for body */
     body {
-      background-image: url('images/waterfall-background.jpg'); /* Add the correct path to your waterfall image */
+      background-image: url('images/waterfall-background.jpg');
       background-size: cover;
-      background-position: center;
       background-attachment: fixed;
+      background-position: center;
     }
-
-    /* Hover effect styles */
-    .hover-details {
-      display: none;
+    .section-title {
+      color: #2c3e50;
+      transition: color 0.3s ease;
+      cursor: pointer;
     }
-    .group:hover .hover-details {
-      display: block;
+    .section-title:hover {
+      color: #3498db;
+    }
+    .custom-text {
+      color: #34495e;
+    }
+    .btn-link {
+      color: #e74c3c;
+    }
+    .btn-link:hover {
+      color: #2980b9;
     }
   </style>
 </head>
-<body class="min-h-screen">
-  <div class="p-6 space-y-10 bg-white bg-opacity-75 rounded-xl">
-    <section class="text-center text-gray-800">
-      <h1 class="text-5xl font-bold mb-2">Family Trip</h1>
-      <p class="text-lg">Dates: May 18, 2025 - May 24, 2025</p>
-    </section>
+<body class="text-gray-800">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white bg-opacity-90 shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="text-2xl font-bold text-teal-700">Family Trip</div>
+        <div class="space-x-6 hidden md:flex">
+          <a href="#itinerary" class="text-gray-700 hover:text-teal-600 font-medium">Daily Itinerary</a>
+          <a href="#attractions" class="text-gray-700 hover:text-teal-600 font-medium">Attractions</a>
+          <a href="#tickets" class="text-gray-700 hover:text-teal-600 font-medium">Tickets</a>
+          <a href="#cost" class="text-gray-700 hover:text-teal-600 font-medium">Estimate Cost</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-24 max-w-6xl mx-auto p-6 bg-white bg-opacity-80 rounded-lg space-y-12">
+
 
     <!-- Daily Itinerary Section -->
     <section class="bg-white p-6 rounded-xl shadow-lg mt-10">
