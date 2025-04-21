@@ -76,6 +76,29 @@
 #itemList li {
     margin-bottom: 5px;
 }
+    #itemList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
 
   </style>
 </head>
@@ -383,17 +406,61 @@
     <ul id="itemList"></ul>
 </div>
   <script>
+    // Load list from localStorage when the page loads
+    window.onload = function () {
+        const savedItems = JSON.parse(localStorage.getItem('bringList')) || [];
+        savedItems.forEach(item => {
+            createListItem(item);
+        });
+    };
+
     function addItem() {
         const input = document.getElementById('itemInput');
-        const item = input.value.trim();
-        if (item !== '') {
-            const li = document.createElement('li');
-            li.textContent = item;
-            document.getElementById('itemList').appendChild(li);
+        const itemText = input.value.trim();
+
+        if (itemText !== '') {
+            createListItem(itemText);
+            saveItemToStorage(itemText);
             input.value = '';
         }
     }
+
+    function createListItem(itemText) {
+        const li = document.createElement('li');
+
+        const span = document.createElement('span');
+        span.textContent = itemText;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.onclick = function () {
+            li.remove();
+            removeItemFromStorage(itemText);
+        };
+
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        document.getElementById('itemList').appendChild(li);
+    }
+
+    function saveItemToStorage(item) {
+        const currentItems = JSON.parse(localStorage.getItem('bringList')) || [];
+        currentItems.push(item);
+        localStorage.setItem('bringList', JSON.stringify(currentItems));
+    }
+
+    function removeItemFromStorage(item) {
+        let currentItems = JSON.parse(localStorage.getItem('bringList')) || [];
+        currentItems = currentItems.filter(i => i !== item);
+        localStorage.setItem('bringList', JSON.stringify(currentItems));
+    }
 </script>
+
+    
+
+           
+
 
 
 
