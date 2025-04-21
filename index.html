@@ -35,69 +35,12 @@
     .btn-link:hover {
       color: #2980b9;
     }
-    .bring-section {
-    margin: 50px auto;
-    width: 300px;
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-}
+  
 
-.bring-section input {
-    padding: 10px;
-    width: 70%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 5px;
-}
 
-.bring-section button {
-    padding: 10px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.bring-section button:hover {
-    background-color: #0056b3;
-}
 
-#itemList {
-    margin-top: 20px;
-    text-align: left;
-    padding-left: 0;
-    list-style-type: disc;
-}
 
-#itemList li {
-    margin-bottom: 5px;
-}
-    #itemList li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    padding: 5px 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
-.delete-btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.delete-btn:hover {
-    background-color: #c82333;
-}
 
 
   </style>
@@ -398,74 +341,8 @@
         </div>
       </div>
     </section>
-  <!-- Bring Section -->
-  <div class="bring-section">
-    <h2>Things to Bring on Vacation</h2>
-    <input type="text" id="itemInput" placeholder="Enter item..." />
-    <button onclick="addItem()">Add</button>
-    <ul id="itemList"></ul>
-</div>
-  <script>
-    <!-- ✅ Firebase SDK goes here -->
-  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js"></script>
-
-  <!-- ✅ Your Firebase code here -->
-  <script>
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "your-app.firebaseapp.com",
-      databaseURL: "https://your-app-default-rtdb.firebaseio.com",
-      projectId: "your-app",
-      storageBucket: "your-app.appspot.com",
-      messagingSenderId: "SENDER_ID",
-      appId: "APP_ID"
-    };
-
-    const app = firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
-
-    const itemInput = document.getElementById('itemInput');
-    const itemList = document.getElementById('itemList');
-
-    function addItem() {
-      const item = itemInput.value.trim();
-      if (item) {
-        const newItemRef = firebase.database().ref('items').push();
-        newItemRef.set({ text: item });
-        itemInput.value = '';
-      }
-    }
-
-    function removeItem(key) {
-      firebase.database().ref('items/' + key).remove();
-    }
-
-    firebase.database().ref('items').on('value', (snapshot) => {
-      itemList.innerHTML = '';
-      snapshot.forEach((childSnapshot) => {
-        const key = childSnapshot.key;
-        const item = childSnapshot.val().text;
-
-        const li = document.createElement('li');
-        const span = document.createElement('span');
-        span.textContent = item;
-
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
-        deleteBtn.className = 'delete-btn';
-        deleteBtn.onclick = () => removeItem(key);
-
-        li.appendChild(span);
-        li.appendChild(deleteBtn);
-        itemList.appendChild(li);
-      });
-    });
-  </script>
-</body>
-</html>
-  
-
+ 
+    
     
 
            
