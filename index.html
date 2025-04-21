@@ -35,6 +35,48 @@
     .btn-link:hover {
       color: #2980b9;
     }
+    .bring-section {
+    margin: 50px auto;
+    width: 300px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+.bring-section input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.bring-section button {
+    padding: 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bring-section button:hover {
+    background-color: #0056b3;
+}
+
+#itemList {
+    margin-top: 20px;
+    text-align: left;
+    padding-left: 0;
+    list-style-type: disc;
+}
+
+#itemList li {
+    margin-bottom: 5px;
+}
+
   </style>
 </head>
 <body class="text-gray-800">
@@ -335,6 +377,27 @@
         </div>
       </div>
     </section>
+  <!-- Bring Section -->
+  <div class="bring-section">
+    <h2>Things to Bring on Vacation</h2>
+    <input type="text" id="itemInput" placeholder="Enter item..." />
+    <button onclick="addItem()">Add</button>
+    <ul id="itemList"></ul>
+</div>
+  <script>
+    function addItem() {
+        const input = document.getElementById('itemInput');
+        const item = input.value.trim();
+        if (item !== '') {
+            const li = document.createElement('li');
+            li.textContent = item;
+            document.getElementById('itemList').appendChild(li);
+            input.value = '';
+        }
+    }
+</script>
+
+
 
   </div>
 </body>
