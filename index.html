@@ -68,47 +68,6 @@
 .ticket-link:hover {
   text-decoration: underline;
 }
-<head>
-  <meta charset="UTF-8">
-  <title>Things to Bring on Vacation</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 2em;
-      background: #f9fbff;
-    }
-    h2 {
-      color: #2c3e50;
-    }
-    input, button {
-      padding: 0.6em;
-      font-size: 1em;
-      margin: 0.5em;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      background: #e6f0ff;
-      margin: 0.5em auto;
-      max-width: 400px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.7em;
-      border-radius: 8px;
-    }
-    .delete-btn {
-      background: #e74c3c;
-      color: #fff;
-      border: none;
-      padding: 0.4em 0.6em;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-  
 
 
 
@@ -572,86 +531,7 @@
       </div>
     </section>
  
-    
-<h2>Things to Bring on Vacation</h2>
-
-  <input type="text" id="itemInput" placeholder="Enter item..." />
-  <button onclick="addItem()">Add</button>
-
-  <ul id="itemList"></ul>
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js"></script>
-
-  <script>
-    // 🛠️ Replace with your Firebase config
-    const firebaseConfig = {
-  apiKey: "AIzaSyBByVbBT8whJrgG1S-xoTBY9HnAgX1G3dE",
-  authDomain: "trip-60179.firebaseapp.com",
-  projectId: "trip-60179",
-  storageBucket: "trip-60179.firebasestorage.app",
-  messagingSenderId: "19351375457",
-  appId: "1:19351375457:web:9a1bf5032ad2bf1009a420",
-  measurementId: "G-2XL2DHF648"
-};
-
-    
-    const app = firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
-    const itemsRef = database.ref("vacation-items");
-
-    const itemInput = document.getElementById("itemInput");
-    const itemList = document.getElementById("itemList");
-
-    function addItem() {
-      const newItem = itemInput.value.trim();
-      if (!newItem) return;
-
-      // Check for duplicates before adding
-      itemsRef.once("value", (snapshot) => {
-        let isDuplicate = false;
-        snapshot.forEach((child) => {
-          if (child.val().text.toLowerCase() === newItem.toLowerCase()) {
-            isDuplicate = true;
-          }
-        });
-
-        if (isDuplicate) {
-          alert("Item already added!");
-        } else {
-          itemsRef.push({ text: newItem });
-        }
-
-        itemInput.value = "";
-      });
-    }
-
-    function deleteItem(key) {
-      itemsRef.child(key).remove();
-    }
-
-    // Realtime display
-    itemsRef.on("value", (snapshot) => {
-      itemList.innerHTML = "";
-      snapshot.forEach((child) => {
-        const key = child.key;
-        const value = child.val().text;
-
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <span>${value}</span>
-          <button class="delete-btn" onclick="deleteItem('${key}')">Delete</button>
-        `;
-        itemList.appendChild(li);
-      });
-    });
-  </script>
-
-</body>
-</html>
-           
-
+  
 
 
 
